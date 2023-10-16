@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:motocar_project/view/widgets/my_custom_textFormField.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class RegisterView extends StatefulWidget {
+  const RegisterView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<RegisterView> createState() => _LoginViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _LoginViewState extends State<RegisterView> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -44,6 +44,45 @@ class _LoginViewState extends State<LoginView> {
                         height: 150,
                       ),
                     ),
+                    //name
+                    Container(
+                      height: 40,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: size.width * 0.01,
+                        //vertical: 0.02,
+                      ),
+                      margin: EdgeInsets.symmetric(
+                        horizontal: size.width * 0.1,
+                        //vertical: size.width * 0.5,
+                      ),
+                      child: myCustomTextformFlied(
+                        hintText: 'NAME',
+                        prefixIcon: const Icon(
+                          Icons.person,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    //lastname
+                    Container(
+                      height: 40,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: size.width * 0.01,
+                        //vertical: 0.02,
+                      ),
+                      margin: EdgeInsets.symmetric(
+                        horizontal: size.width * 0.1,
+                        //vertical: size.width * 0.5,
+                      ),
+                      child: myCustomTextformFlied(
+                        hintText: 'LASTNAME',
+                        prefixIcon: const Icon(
+                          Icons.person,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+
                     //email
                     Container(
                       height: 40,
@@ -108,15 +147,13 @@ class _LoginViewState extends State<LoginView> {
                             minimumSize: MaterialStateProperty.all(
                                 Size(size.width / 2, 30))),
                         child: const Text(
-                          'Login',
+                          'Sign Up',
                           style: TextStyle(color: Colors.white),
                         ),
                       ),
                     ),
                     ElevatedButton(
-                        onPressed: () => {
-                              Navigator.pushNamed(context, '/register'),
-                            },
+                        onPressed: () => {},
                         style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all<Color>(Colors.grey),
@@ -141,8 +178,7 @@ class _LoginViewState extends State<LoginView> {
                       style: ButtonStyle(
                           minimumSize: MaterialStateProperty.all(
                               Size(size.width / 2, 30))),
-                      icon: const Icon(FontAwesomeIcons.google,
-                          color: Color.fromARGB(255, 160, 31, 22)),
+                      icon: const Icon(FontAwesomeIcons.google),
                       label: const Text('Continue With Google',
                           style: TextStyle(color: Colors.black)),
                     ),

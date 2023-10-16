@@ -21,3 +21,29 @@ Container customContainer({String texto = 'Texto'}) {
     ),
   );
 }
+
+ElevatedButton elevatedButton(
+    {BuildContext? context,
+    String rute = '/',
+    Icon? icon,
+    String texto = 'Texto'}) {
+  return ElevatedButton(
+    onPressed: () {
+      Navigator.pushNamed(context!, rute);
+    },
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        icon!,
+        Text(
+          texto,
+          style: const TextStyle(
+              color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 20),
+        ),
+        const SizedBox(
+          width: 20,
+        )
+      ],
+    ),
+  );
+}

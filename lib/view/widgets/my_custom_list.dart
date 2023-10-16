@@ -25,7 +25,7 @@ class Car {
       return Car(
           id: index + 1,
           title: filtros[index % filtros.length],
-          description: '$index + 1');
+          description: '${index + 1}');
     });
   }
 }
