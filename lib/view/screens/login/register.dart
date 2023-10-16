@@ -72,7 +72,7 @@ class _LoginViewState extends State<RegisterView> {
                       ),
                       margin: EdgeInsets.symmetric(
                         horizontal: size.width * 0.1,
-                        //vertical: size.width * 0.5,
+                        vertical: size.width * 0.025,
                       ),
                       child: myCustomTextformFlied(
                         hintText: 'LASTNAME',
