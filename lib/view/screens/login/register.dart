@@ -26,7 +26,7 @@ class _LoginViewState extends State<RegisterView> {
             end: Alignment(0, 0.05),
           ),
         ),
-        child: Wrap(
+        child: Column(
           children: <Widget>[
             Expanded(
               child: SingleChildScrollView(
@@ -114,25 +114,30 @@ class _LoginViewState extends State<RegisterView> {
                         vertical: size.width * 0.025,
                       ),
                       child: myCustomTextformFlied(
-                        sufficon: true,
                         obscuretext: passwordIcon,
                         hintText: 'PASSWORD',
                         prefixIcon: const Icon(
                           Icons.lock,
                           color: Colors.black,
                         ),
-                        iconButton: IconButton(
-                          padding: const EdgeInsetsDirectional.only(end: 12),
-                          onPressed: () {
-                            setState(
-                              () {
-                                passwordIcon = !passwordIcon;
-                              },
-                            );
-                          },
-                          icon: passwordIcon
-                              ? const Icon(Icons.visibility_off)
-                              : const Icon(Icons.visibility),
+                      ),
+                    ),
+                    //confirm password
+                    Container(
+                      height: 40,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: size.width * 0.01,
+                        //vertical: 0.02,
+                      ),
+                      margin: EdgeInsets.symmetric(
+                        horizontal: size.width * 0.1,
+                      ),
+                      child: myCustomTextformFlied(
+                        obscuretext: passwordIcon,
+                        hintText: 'CONFIRM PASSWORD',
+                        prefixIcon: const Icon(
+                          Icons.lock,
+                          color: Colors.black,
                         ),
                       ),
                     ),
@@ -152,17 +157,6 @@ class _LoginViewState extends State<RegisterView> {
                         ),
                       ),
                     ),
-                    ElevatedButton(
-                        onPressed: () => {},
-                        style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all<Color>(Colors.grey),
-                            minimumSize: MaterialStateProperty.all(
-                                Size(size.width / 2, 30))),
-                        child: const Text(
-                          'Register',
-                          style: TextStyle(color: Colors.white),
-                        )),
                     Container(
                       padding: EdgeInsets.symmetric(
                         horizontal: size.width * 0.1,
@@ -178,7 +172,8 @@ class _LoginViewState extends State<RegisterView> {
                       style: ButtonStyle(
                           minimumSize: MaterialStateProperty.all(
                               Size(size.width / 2, 30))),
-                      icon: const Icon(FontAwesomeIcons.google),
+                      icon: const Icon(FontAwesomeIcons.google,
+                          color: Color.fromARGB(255, 160, 31, 22)),
                       label: const Text('Continue With Google',
                           style: TextStyle(color: Colors.black)),
                     ),

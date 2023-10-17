@@ -28,6 +28,10 @@ ElevatedButton elevatedButton(
     Icon? icon,
     String texto = 'Texto'}) {
   return ElevatedButton(
+    style: ButtonStyle(
+      backgroundColor: MaterialStateProperty.all<Color>(
+          const Color.fromARGB(255, 230, 230, 230)),
+    ),
     onPressed: () {
       Navigator.pushNamed(context!, rute);
     },

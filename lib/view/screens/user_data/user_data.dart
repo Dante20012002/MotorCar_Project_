@@ -6,7 +6,8 @@ import 'package:motocar_project/view/widgets/my_custom_container.dart';
 class UserData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return MaterialApp(
+      home: Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(150),
           child: AppBar(
@@ -16,8 +17,9 @@ class UserData extends StatelessWidget {
               child: const Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.all(20.0),
+                    padding: EdgeInsets.all(25.0),
                     child: CircleAvatar(
+                        backgroundColor: Color.fromARGB(255, 230, 230, 230),
                         maxRadius: Checkbox.width * 2,
                         child: Icon(
                           Icons.person,
@@ -109,6 +111,8 @@ class UserData extends StatelessWidget {
             ),
           ),
         ),
-        bottomNavigationBar: bottomnavigationbar(context));
+        bottomNavigationBar: bottomnavigationbar(context),
+      ),
+    );
   }
 }
