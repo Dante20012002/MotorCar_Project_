@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:motocar_project/view/screens/home/home.dart';
 import 'package:motocar_project/view/screens/login/login.dart';
 import 'package:motocar_project/view/screens/login/register.dart';
+import 'package:motocar_project/view/screens/messenger/messenger.dart';
 import 'package:motocar_project/view/screens/user_data/user_data.dart';
 
 void main() {
@@ -24,6 +25,7 @@ class MotorCarHP extends StatelessWidget {
         '/home': (context) => HomePage(),
         '/userdata': (context) => UserData(),
         '/register': (context) => RegisterView(),
+        '/messenger': (context) => MessengerView(),
       },
     );
   }

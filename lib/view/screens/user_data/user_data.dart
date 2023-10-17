@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motocar_project/view/widgets/botommappbar.dart';
+import 'package:motocar_project/view/widgets/gradientappbar.dart';
 import 'package:motocar_project/view/widgets/my_custom_container.dart';
 
 class UserData extends StatelessWidget {
@@ -11,16 +12,7 @@ class UserData extends StatelessWidget {
           child: AppBar(
             backgroundColor: Colors.red,
             flexibleSpace: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color.fromARGB(255, 22, 0, 0),
-                    Color.fromARGB(255, 146, 10, 0),
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                ),
-              ),
+              decoration: gradientBox(),
               child: const Row(
                 children: [
                   Padding(

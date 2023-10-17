@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-bool passwordIcon = false;
+bool passwordIcon = true;
 
 TextFormField myCustomTextformFlied(
     {String hintText = 'Texto',

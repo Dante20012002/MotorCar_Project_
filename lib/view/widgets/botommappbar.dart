@@ -24,7 +24,11 @@ BottomAppBar bottomnavigationbar(BuildContext context) {
           },
           icon: const Icon(Icons.person),
         ),
-        IconButton(onPressed: () {}, icon: const Icon(Icons.chat)),
+        IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/messenger');
+            },
+            icon: const Icon(Icons.chat)),
         IconButton(onPressed: () {}, icon: const Icon(Icons.shopping_cart)),
       ],
     ),

@@ -104,8 +104,8 @@ class _HomePageState extends State<HomePage> {
                               fontWeight: FontWeight.bold),
                         ),
                       ),
-                      Container(
-                        padding: const EdgeInsets.only(left: 20, right: 20),
+                      TextButton(
+                        onPressed: () {},
                         child: const Text(
                           'Limpiar filtros:',
                           style: TextStyle(
@@ -190,69 +190,74 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget buildCarWidget(CarDetails car) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          children: [
-            Container(
-              width: 100,
-              height: 100,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                image: DecorationImage(
-                  image: NetworkImage(car.imageLink),
-                  fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/');
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  image: DecorationImage(
+                    image: NetworkImage(car.imageLink),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    car.title1,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      car.title1,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    car.price,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      color: Colors.black,
+                    const SizedBox(height: 10),
+                    Text(
+                      car.price,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        color: Colors.black,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    car.description,
-                    style: const TextStyle(
-                      fontSize: 14,
-                      color: Colors.black,
+                    const SizedBox(height: 10),
+                    Text(
+                      car.description,
+                      style: const TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            IconButton(
-              icon: Icon(
-                Icons.favorite_outlined,
-                color: car.isFavorite ? Colors.red : Colors.white,
-                shadows: const [Shadow(color: Colors.black, blurRadius: 2)],
+              IconButton(
+                icon: Icon(
+                  Icons.favorite_outlined,
+                  color: car.isFavorite ? Colors.red : Colors.white,
+                  shadows: const [Shadow(color: Colors.black, blurRadius: 2)],
+                ),
+                onPressed: () {
+                  setState(() {
+                    car.isFavorite = !car.isFavorite;
+                  });
+                },
               ),
-              onPressed: () {
-                setState(() {
-                  car.isFavorite = !car.isFavorite;
-                });
-              },
-            ),
-          ],
-        ),
-        const SizedBox(height: 16),
-      ],
+            ],
+          ),
+          const SizedBox(height: 16),
+        ],
+      ),
     );
   }
 }

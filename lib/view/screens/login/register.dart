@@ -26,7 +26,7 @@ class _LoginViewState extends State<RegisterView> {
             end: Alignment(0, 0.05),
           ),
         ),
-        child: Column(
+        child: Wrap(
           children: <Widget>[
             Expanded(
               child: SingleChildScrollView(
