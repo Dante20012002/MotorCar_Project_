@@ -1,58 +1,91 @@
 import 'package:flutter/material.dart';
-import 'package:motocar_project/view/widgets/botommappbar.dart';
+import 'package:motocar_project/view/screens/messenger/chat.dart';
 import 'package:motocar_project/view/widgets/gradientappbar.dart';
 
 class MessengerView extends StatefulWidget {
   const MessengerView({super.key});
 
   @override
-  State<MessengerView> createState() => _MessengerView();
+  State<MessengerView> createState() => _MessengerViewState();
 }
 
-class _MessengerView extends State<MessengerView> {
+class _MessengerViewState extends State<MessengerView> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.red,
-          flexibleSpace: Container(
-            decoration: gradientBox(),
-          ),
-          title: Text("Notificaciones"),
-        ),
-        body: ListView(
-          children: [
-            buildNotificationItem(
-              "El vendedor Ramiro se ha contactado contigo!",
-              "10/09",
-            ),
-            buildNotificationItem(
-              "El vendedor Carlos se ha contactado contigo!",
-              "11/09",
-            ),
-            buildNotificationItem(
-              "El comprador Miguel se ha contactado contigo!",
-              "12/09",
-            ),
-          ],
-        ),
-        bottomNavigationBar: bottomnavigationbar(context),
-      ),
+      home: MyPurchaseScreen(),
     );
   }
 }
 
-Widget buildNotificationItem(String message, String date) {
-  return ListTile(
-    leading: Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Icon(Icons.mail_outline),
-        SizedBox(width: 10), // Agregar espacio horizontal
-      ],
-    ),
-    title: Text(message),
-    trailing: Text(date),
-  );
+class MyPurchaseScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MyChatScreen(),
+    );
+  }
+}
+
+class MyChatScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        flexibleSpace: Container(
+          decoration: gradientBox(),
+        ),
+        title: const Text("Mensajes"),
+      ),
+      body: ListView(
+        children: [
+          buildChatListItem("Ramiro", context),
+          // Agregar más elementos de chat si es necesario
+        ],
+      ),
+    );
+  }
+
+  Widget buildChatListItem(String contactName, BuildContext context) {
+    return ListTile(
+      title: Text(contactName),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => ChatScreen(contactName)),
+        );
+      },
+    );
+  }
+}
+
+class ChatInputField extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: Colors.grey[300],
+      ),
+      child: Row(
+        children: [
+          const Expanded(
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: "Escribe un mensaje...",
+                border: InputBorder.none,
+              ),
+            ),
+          ),
+          IconButton(
+            icon: const Icon(Icons.send),
+            onPressed: () {
+              // Agregar lógica para enviar el mensaje
+            },
+          ),
+        ],
+      ),
+    );
+  }
 }

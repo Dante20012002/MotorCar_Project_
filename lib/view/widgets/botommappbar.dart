@@ -15,7 +15,9 @@ BottomAppBar bottomnavigationbar(BuildContext context) {
           ),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/notifications');
+          },
           icon: const Icon(Icons.notifications_active),
         ),
         IconButton(
