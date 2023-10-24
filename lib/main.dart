@@ -4,6 +4,7 @@ import 'package:motocar_project/view/screens/login/login.dart';
 import 'package:motocar_project/view/screens/login/register.dart';
 import 'package:motocar_project/view/screens/messenger/messenger.dart';
 import 'package:motocar_project/view/screens/notifications/notifications.dart';
+import 'package:motocar_project/view/screens/public_car/public_car.dart';
 import 'package:motocar_project/view/screens/user_data/user_data.dart';
 
 void main() {
@@ -28,6 +29,7 @@ class MotorCarHP extends StatelessWidget {
         '/register': (context) => RegisterView(),
         '/notifications': (context) => NotificationsView(),
         '/messenger': (context) => MessengerView(),
+        '/publicCar': (context) => PublicCar()
       },
     );
   }

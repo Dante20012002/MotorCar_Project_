@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 BottomAppBar bottomnavigationbar(BuildContext context) {
   return BottomAppBar(
@@ -22,9 +23,9 @@ BottomAppBar bottomnavigationbar(BuildContext context) {
         ),
         IconButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/userdata');
+            Navigator.pushNamed(context, '/publicCar');
           },
-          icon: const Icon(Icons.person),
+          icon: const Icon(FontAwesomeIcons.squarePlus),
         ),
         IconButton(
             onPressed: () {

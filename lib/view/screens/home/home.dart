@@ -18,6 +18,38 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          actions: <Widget>[
+            IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/userdata');
+              },
+              icon: const CircleAvatar(
+                backgroundColor: Color.fromARGB(255, 230, 230, 230),
+                child: Icon(Icons.person),
+              ),
+            ),
+          ],
+          leading: Builder(builder: (context) {
+            return IconButton(
+              icon: const Icon(FontAwesomeIcons.sliders, color: Colors.white),
+              onPressed: () => Scaffold.of(context).openDrawer(),
+            );
+          }),
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromARGB(255, 22, 0, 0),
+                  Color.fromARGB(255, 146, 10, 0)
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
+            ),
+          ),
+        ),
         drawer: Drawer(
           child: SingleChildScrollView(
             child: Column(
@@ -92,27 +124,6 @@ class _HomePageState extends State<HomePage> {
                   }).toList(),
                 ),
               ],
-            ),
-          ),
-        ),
-        appBar: AppBar(
-          backgroundColor: Colors.red,
-          leading: Builder(builder: (context) {
-            return IconButton(
-              icon: const Icon(FontAwesomeIcons.sliders, color: Colors.white),
-              onPressed: () => Scaffold.of(context).openDrawer(),
-            );
-          }),
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  Color.fromARGB(255, 22, 0, 0),
-                  Color.fromARGB(255, 146, 10, 0)
-                ],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-              ),
             ),
           ),
         ),
