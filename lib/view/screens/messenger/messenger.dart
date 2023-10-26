@@ -29,7 +29,7 @@ class _MessengerViewState extends State<MessengerView> {
             // Agregar más elementos de chat si es necesario
           ],
         ),
-        //bottomNavigationBar: bottomnavigationbar(context),
+        bottomNavigationBar: bottomnavigationbar(context),
       ),
     );
   }
