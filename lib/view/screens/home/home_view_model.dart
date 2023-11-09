@@ -1,17 +1,16 @@
 import 'package:flutter/cupertino.dart';
+import 'package:http/http.dart';
+import 'package:motocar_project/utils/api/api_client.dart';
 
-class HomeViewModel {
-  TextEditingController _emailController = TextEditingController();
-  bool _isValidEmail = true;
-  TextEditingController _passwordController = TextEditingController();
+// class HomeViewModelCar extends ChangeNotifier {
+//   HomeViewModelCar(){
 
-  TextEditingController getEmailController() => _emailController;
-  TextEditingController getPasswordController() => _passwordController;
-  bool getIsValidEmail() => _isValidEmail;
+//   }
 
-  validateEmail() {
-    final email = _emailController.text;
-    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}');
-    _isValidEmail = emailRegex.hasMatch(email);
-  }
-}
+//   getAllCar() async {
+
+//     ApiClient api = new ApiClient();
+//     final response = await api.get(uri)
+//   }
+// }
+

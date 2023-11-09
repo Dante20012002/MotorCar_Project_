@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:motocar_project/view/widgets/my_custom_textFormField.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -10,6 +12,11 @@ class RegisterView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<RegisterView> {
+  TextEditingController email = TextEditingController();
+  TextEditingController username = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController phone = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -63,26 +70,6 @@ class _LoginViewState extends State<RegisterView> {
                         ),
                       ),
                     ),
-                    //lastname
-                    Container(
-                      height: 40,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: size.width * 0.01,
-                        //vertical: 0.02,
-                      ),
-                      margin: EdgeInsets.symmetric(
-                        horizontal: size.width * 0.1,
-                        vertical: size.width * 0.025,
-                      ),
-                      child: myCustomTextformFlied(
-                        hintText: 'LASTNAME',
-                        prefixIcon: const Icon(
-                          Icons.person,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-
                     //email
                     Container(
                       height: 40,

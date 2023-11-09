@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motocar_project/utils/api/api_client.dart';
 import 'package:motocar_project/view/widgets/my_custom_textFormField.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -10,10 +11,15 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
+  final GlobalKey<ScaffoldState> _globalKey = new GlobalKey<ScaffoldState>();
+  TextEditingController _email = TextEditingController();
+  TextEditingController _password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
+      key: _globalKey,
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -56,6 +62,7 @@ class _LoginViewState extends State<LoginView> {
                         //vertical: size.width * 0.5,
                       ),
                       child: myCustomTextformFlied(
+                        controler: _email,
                         hintText: 'USER',
                         prefixIcon: const Icon(
                           Icons.person,
@@ -75,6 +82,7 @@ class _LoginViewState extends State<LoginView> {
                         vertical: size.width * 0.025,
                       ),
                       child: myCustomTextformFlied(
+                        controler: _password,
                         sufficon: true,
                         obscuretext: passwordIcon,
                         hintText: 'PASSWORD',
@@ -100,6 +108,7 @@ class _LoginViewState extends State<LoginView> {
                     Container(
                       margin: const EdgeInsets.only(top: 20),
                       child: ElevatedButton(
+                        // key: _globalKey,
                         onPressed: () =>
                             {Navigator.pushNamed(context, '/home')},
                         style: ButtonStyle(
@@ -154,5 +163,23 @@ class _LoginViewState extends State<LoginView> {
         ),
       ),
     );
+  }
+
+  void _processLogin() async {
+    if (_email.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('Ingrese un correo registrado'),
+        duration: Duration(seconds: 3),
+      ));
+    } else if (_password.text.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+        content: Text('Ingrese una contraseña valida'),
+        duration: Duration(seconds: 3),
+      ));
+    } else {
+      var data = {'email': _email.text, 'password': _password.text};
+
+      var res = await ApiClient().post('/api/login');
+    }
   }
 }
