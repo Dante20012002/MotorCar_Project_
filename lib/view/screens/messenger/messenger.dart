@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:motocar_project/view/screens/messenger/chat.dart';
 import 'package:motocar_project/view/screens/messenger/widgets/buildChatList.dart';
 import 'package:motocar_project/view/widgets/botommappbar.dart';
 import 'package:motocar_project/view/widgets/gradientappbar.dart';

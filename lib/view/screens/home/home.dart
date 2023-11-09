@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
               },
               icon: const CircleAvatar(
                 backgroundColor: Color.fromARGB(255, 230, 230, 230),
-                child: Icon(Icons.person),
+                child: Icon(Icons.person, color: Colors.grey),
               ),
             ),
           ],

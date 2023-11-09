@@ -22,32 +22,37 @@ Container customContainer({String texto = 'Texto'}) {
   );
 }
 
-ElevatedButton elevatedButton(
-    {BuildContext? context,
-    String rute = '/',
-    Icon? icon,
-    String texto = 'Texto'}) {
-  return ElevatedButton(
-    style: ButtonStyle(
-      backgroundColor: MaterialStateProperty.all<Color>(
-          const Color.fromARGB(255, 230, 230, 230)),
-    ),
-    onPressed: () {
-      Navigator.pushNamed(context!, rute);
-    },
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        icon!,
-        Text(
-          texto,
-          style: const TextStyle(
-              color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 20),
-        ),
-        const SizedBox(
-          width: 20,
-        )
-      ],
+SizedBox elevatedButton({
+  BuildContext? context,
+  String rute = '/',
+  Icon? icon,
+  String texto = 'Texto',
+  double sizew = 300,
+}) {
+  return SizedBox(
+    width: sizew,
+    child: ElevatedButton(
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(
+            const Color.fromARGB(255, 230, 230, 230)),
+      ),
+      onPressed: () {
+        Navigator.pushNamed(context!, rute);
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          icon!,
+          Text(
+            texto,
+            style: const TextStyle(
+                color: Colors.grey, fontWeight: FontWeight.bold, fontSize: 20),
+          ),
+          const SizedBox(
+            width: 20,
+          )
+        ],
+      ),
     ),
   );
 }
