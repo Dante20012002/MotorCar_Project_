@@ -5,7 +5,7 @@ import 'package:motocar_project/data/models/user_view_model.dart';
 import 'package:motocar_project/utils/api/api_exception.dart';
 
 class ApiClient {
-  final String _domain = 'http://127.0.0.1:8000';
+  final String _domain = 'eda5-190-60-114-230.ngrok-free.app';
 
   static ApiClient instance() => ApiClient();
 
@@ -17,8 +17,14 @@ class ApiClient {
     return _processResponse(response);
   }
 
-  Future<http.Response> post(String uri) async {
-    final response = await http.post(_setUrl(uri));
+  Future<http.Response> post(String uri, {Map<String, dynamic>? data}) async {
+    final response = await http.post(
+      _setUrl(uri),
+      body: data != null ? json.encode(data) : null,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    );
 
     return _processResponse(response);
   }
@@ -31,9 +37,11 @@ class ApiClient {
     return response;
   }
 
-  Future<http.Response> _registerUser(User user, String uri) async {
+  Future<http.Response> registerUser(
+    User user,
+  ) async {
     try {
-      final response = await http.post(_setUrl(uri),
+      final response = await http.post(_setUrl('api/newUser'),
           body: json.encode({
             'name': user.name,
             'email': user.email,
@@ -42,6 +50,7 @@ class ApiClient {
           }),
           headers: {
             'Content-Type': 'application/json',
+            'Accept': 'application/json',
           });
       return _processResponse(response);
     } catch (e) {

@@ -109,8 +109,9 @@ class _LoginViewState extends State<LoginView> {
                       margin: const EdgeInsets.only(top: 20),
                       child: ElevatedButton(
                         // key: _globalKey,
-                        onPressed: () =>
-                            {Navigator.pushNamed(context, '/home')},
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/home');
+                        },
                         style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all<Color>(Colors.grey),
@@ -173,13 +174,25 @@ class _LoginViewState extends State<LoginView> {
       ));
     } else if (_password.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-        content: Text('Ingrese una contraseña valida'),
+        content: Text('Ingrese una contraseña válida'),
         duration: Duration(seconds: 3),
       ));
     } else {
       var data = {'email': _email.text, 'password': _password.text};
 
-      var res = await ApiClient().post('/api/login');
+      try {
+        var res = await ApiClient().post('/api/login', data: data);
+
+        // Aquí puedes manejar la respuesta del servidor (por ejemplo, mostrar un mensaje de éxito)
+        print('Respuesta del servidor: ${res.body}');
+      } catch (e) {
+        // Manejar cualquier error que pueda ocurrir durante la solicitud
+        print('Error durante el inicio de sesión: $e');
+        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+          content: Text('Error durante el inicio de sesión'),
+          duration: Duration(seconds: 3),
+        ));
+      }
     }
   }
 }
