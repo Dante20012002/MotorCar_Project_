@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:motocar_project/view/screens/home/home.dart';
 import 'package:motocar_project/view/screens/login/login.dart';
 import 'package:motocar_project/view/screens/login/register.dart';
-import 'package:motocar_project/view/screens/messenger/chat.dart';
 import 'package:motocar_project/view/screens/messenger/messenger.dart';
 import 'package:motocar_project/view/screens/mis_datos/mis_dat.dart';
 import 'package:motocar_project/view/screens/notifications/notifications.dart';
