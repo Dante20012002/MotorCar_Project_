@@ -1,4 +1,7 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 Container customContainer({String texto = 'Texto'}) {
   return Container(
@@ -22,13 +25,14 @@ Container customContainer({String texto = 'Texto'}) {
   );
 }
 
-SizedBox elevatedButton({
-  BuildContext? context,
-  String rute = '/',
-  Icon? icon,
-  String texto = 'Texto',
-  double sizew = 300,
-}) {
+SizedBox elevatedButton(
+    {Future? future,
+    BuildContext? context,
+    String rute = '/',
+    Icon? icon,
+    String texto = 'Texto',
+    double sizew = 300,
+    dynamic galeria}) {
   return SizedBox(
     width: sizew,
     child: ElevatedButton(
@@ -37,7 +41,8 @@ SizedBox elevatedButton({
             const Color.fromARGB(255, 230, 230, 230)),
       ),
       onPressed: () {
-        Navigator.pushNamed(context!, rute);
+        galeria;
+        context != null ? Navigator.pushNamed(context!, rute) : null;
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
