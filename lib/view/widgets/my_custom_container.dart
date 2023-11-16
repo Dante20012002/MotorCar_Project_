@@ -31,8 +31,7 @@ SizedBox elevatedButton(
     String rute = '/',
     Icon? icon,
     String texto = 'Texto',
-    double sizew = 300,
-    dynamic galeria}) {
+    double sizew = 300}) {
   return SizedBox(
     width: sizew,
     child: ElevatedButton(
@@ -41,7 +40,6 @@ SizedBox elevatedButton(
             const Color.fromARGB(255, 230, 230, 230)),
       ),
       onPressed: () {
-        galeria;
         context != null ? Navigator.pushNamed(context!, rute) : null;
       },
       child: Row(

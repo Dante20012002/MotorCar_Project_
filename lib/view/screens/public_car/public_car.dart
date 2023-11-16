@@ -63,10 +63,31 @@ class _PublicCarState extends State<PublicCar> {
                 onTap: () {
                   pickImage(ImageSource.gallery);
                 },
-                child:
-                    elevatedButton(icon: Icon(Icons.photo), texto: 'Galeria'),
+                child: Container(
+                  alignment: Alignment.center,
+                  width: 300,
+                  decoration: const BoxDecoration(
+                    color: const Color.fromARGB(255, 230, 230, 230),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(50),
+                    ),
+                  ),
+                  child: const Icon(
+                    Icons.photo,
+                    size: 50,
+                    color: Color.fromARGB(255, 214, 214, 214),
+                  ),
+                ),
               ),
-              if (image != null) Image.file(image!)
+              if (image != null)
+                Container(
+                  margin: EdgeInsets.only(top: 10),
+                  height: 300,
+                  width: 300,
+                  decoration:
+                      BoxDecoration(border: Border.all(color: Colors.grey)),
+                  child: Image.file(image!),
+                ),
             ],
           ),
         ),
