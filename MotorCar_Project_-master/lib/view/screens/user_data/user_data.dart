@@ -68,6 +68,7 @@ class UserData extends StatelessWidget {
                 const SizedBox(height: 20),
                 elevatedButton(
                   context: context,
+                  rute: '/mis_dat',
                   texto: 'Mis Datos',
                   icon: const Icon(
                     Icons.person_outline_rounded,

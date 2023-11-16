@@ -4,6 +4,7 @@ import 'package:motocar_project/view/screens/login/login.dart';
 import 'package:motocar_project/view/screens/login/register.dart';
 import 'package:motocar_project/view/screens/messenger/chat.dart';
 import 'package:motocar_project/view/screens/messenger/messenger.dart';
+import 'package:motocar_project/view/screens/mis_datos/mis_dat.dart';
 import 'package:motocar_project/view/screens/notifications/notifications.dart';
 import 'package:motocar_project/view/screens/public_car/public_car.dart';
 import 'package:motocar_project/view/screens/soporte/chat_soporte.dart';
@@ -34,7 +35,8 @@ class MotorCarHP extends StatelessWidget {
         '/sugerencias': (context) => SugerenciasView(),
         '/messenger': (context) => MessengerView(),
         '/publicCar': (context) => PublicCar(),
-        '/chat_soporte': (context) => ChatScreen_1()
+        '/chat_soporte': (context) => ChatScreen_1(),
+        '/mis_dat': (context) => DatosView()
       },
     );
   }
