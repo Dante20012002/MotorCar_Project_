@@ -4,11 +4,13 @@ import 'package:motocar_project/view/screens/messenger/messenger.dart';
 import 'package:motocar_project/view/screens/messenger/widgets/buidChatMessage.dart';
 import 'package:motocar_project/view/widgets/gradientappbar.dart';
 
-class ChatScreen extends StatelessWidget {
-  final String contactName;
+class ChatScreen_1 extends StatefulWidget {
+  const ChatScreen_1({super.key});
+  @override
+  State<ChatScreen_1> createState() => _ChatScreen_1State();
+}
 
-  ChatScreen(this.contactName);
-
+class _ChatScreen_1State extends State<ChatScreen_1> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -18,12 +20,12 @@ class ChatScreen extends StatelessWidget {
           flexibleSpace: Container(
             decoration: gradientBox(),
           ),
-          title: Text(contactName),
+          title: Text('Chat de Soporte'),
         ),
         body: Column(
           children: [
             buildChatMessage(
-                "Hola! Mi nombre es $contactName, ¿aún sigues interesado en el producto?"),
+                "¡Hola, me llamo Carmela! Soy la asistente virtual de MotorCar ¿Cómo puedo ayudarte?"),
           ],
         ),
         bottomSheet: ChatInputField(),

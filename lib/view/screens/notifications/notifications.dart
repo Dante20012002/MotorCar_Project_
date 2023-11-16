@@ -19,7 +19,7 @@ class _NotificationsView extends State<NotificationsView> {
           flexibleSpace: Container(
             decoration: gradientBox(),
           ),
-          title: Text("Notificaciones"),
+          title: const Text("Notificaciones"),
         ),
         body: ListView(
           children: [
@@ -45,7 +45,7 @@ class _NotificationsView extends State<NotificationsView> {
 
 Widget buildNotificationItem(String message, String date) {
   return ListTile(
-    leading: Row(
+    leading: const Row(
       mainAxisSize: MainAxisSize.min,
       children: [
         Icon(Icons.mail_outline),

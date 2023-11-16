@@ -40,14 +40,14 @@ class UserData extends StatelessWidget {
                       ),
                       SizedBox(height: 5),
                       Text(
-                        'Compras: 20',
+                        'Compras: 2',
                         style: TextStyle(
                           color: Color.fromARGB(255, 207, 203, 203),
                           fontSize: 14,
                         ),
                       ),
                       Text(
-                        'Ventas: 2',
+                        'Ventas: 0',
                         style: TextStyle(
                           color: Color.fromARGB(255, 207, 203, 203),
                           fontSize: 14,
@@ -68,6 +68,7 @@ class UserData extends StatelessWidget {
                 const SizedBox(height: 20),
                 elevatedButton(
                   context: context,
+                  rute: '/mis_dat',
                   texto: 'Mis Datos',
                   icon: const Icon(
                     Icons.person_outline_rounded,
@@ -85,6 +86,7 @@ class UserData extends StatelessWidget {
                 const SizedBox(height: 20),
                 elevatedButton(
                   context: context,
+                  rute: '/chat_soporte',
                   texto: 'Chat de Soporte',
                   icon: const Icon(Icons.support_agent_sharp,
                       size: 50, color: Colors.grey),
@@ -98,6 +100,7 @@ class UserData extends StatelessWidget {
                 const SizedBox(height: 20),
                 elevatedButton(
                   context: context,
+                  rute: '/sugerencias',
                   texto: 'Sugerencias',
                   icon: const Icon(Icons.edit, size: 50, color: Colors.grey),
                 ),
