@@ -5,11 +5,13 @@ bool passwordIcon = true;
 
 TextFormField myCustomTextformFlied(
     {String hintText = 'Texto',
+    TextEditingController? controler,
     bool obscuretext = false,
     Icon? prefixIcon,
     IconButton? iconButton,
     bool sufficon = false}) {
   return TextFormField(
+    controller: controler,
     textAlignVertical: TextAlignVertical.center,
     maxLines: 1,
     inputFormatters: [LengthLimitingTextInputFormatter(25)],

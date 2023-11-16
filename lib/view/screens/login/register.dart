@@ -1,4 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:motocar_project/data/models/user_view_model.dart';
+import 'package:motocar_project/utils/api/api_client.dart';
 import 'package:motocar_project/view/widgets/my_custom_textFormField.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -10,6 +14,13 @@ class RegisterView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<RegisterView> {
+  final ApiClient api = ApiClient();
+  final GlobalKey<ScaffoldState> _globalKey = new GlobalKey<ScaffoldState>();
+  TextEditingController _email = TextEditingController();
+  TextEditingController _username = TextEditingController();
+  TextEditingController _password = TextEditingController();
+  TextEditingController _phone = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -56,6 +67,7 @@ class _LoginViewState extends State<RegisterView> {
                         //vertical: size.width * 0.5,
                       ),
                       child: myCustomTextformFlied(
+                        controler: _username,
                         hintText: 'NAME',
                         prefixIcon: const Icon(
                           Icons.person,
@@ -63,7 +75,7 @@ class _LoginViewState extends State<RegisterView> {
                         ),
                       ),
                     ),
-                    //lastname
+                    //email
                     Container(
                       height: 40,
                       padding: EdgeInsets.symmetric(
@@ -75,15 +87,15 @@ class _LoginViewState extends State<RegisterView> {
                         vertical: size.width * 0.025,
                       ),
                       child: myCustomTextformFlied(
-                        hintText: 'LASTNAME',
+                        controler: _email,
+                        hintText: 'USER',
                         prefixIcon: const Icon(
                           Icons.person,
                           color: Colors.black,
                         ),
                       ),
                     ),
-
-                    //email
+                    //phone
                     Container(
                       height: 40,
                       padding: EdgeInsets.symmetric(
@@ -92,12 +104,12 @@ class _LoginViewState extends State<RegisterView> {
                       ),
                       margin: EdgeInsets.symmetric(
                         horizontal: size.width * 0.1,
-                        //vertical: size.width * 0.5,
                       ),
                       child: myCustomTextformFlied(
-                        hintText: 'USER',
+                        controler: _phone,
+                        hintText: 'PHONE',
                         prefixIcon: const Icon(
-                          Icons.person,
+                          Icons.phone,
                           color: Colors.black,
                         ),
                       ),
@@ -114,6 +126,7 @@ class _LoginViewState extends State<RegisterView> {
                         vertical: size.width * 0.025,
                       ),
                       child: myCustomTextformFlied(
+                        controler: _password,
                         obscuretext: passwordIcon,
                         hintText: 'PASSWORD',
                         prefixIcon: const Icon(
@@ -144,8 +157,21 @@ class _LoginViewState extends State<RegisterView> {
                     Container(
                       margin: const EdgeInsets.only(top: 20),
                       child: ElevatedButton(
-                        onPressed: () =>
-                            {Navigator.pushNamed(context, '/home')},
+                        onPressed: () async {
+                          var response = await api.registerUser(User(
+                              name: _username.text,
+                              email: _email.text,
+                              password: _password.text,
+                              phone: _phone.text));
+                          if (response.statusCode == 422) {
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content:
+                                  Text(json.decode(response.body)['message']),
+                              duration: Duration(seconds: 3),
+                            ));
+                          } else if (response.statusCode == 422) ;
+                          //Navigator.pushNamed(context, '/home')
+                        },
                         style: ButtonStyle(
                             backgroundColor:
                                 MaterialStateProperty.all<Color>(Colors.grey),
